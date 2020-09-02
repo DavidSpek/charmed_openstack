@@ -1,0 +1,105 @@
+# This is the network config written by 'subiquity'
+network:
+  version: 2
+  ethernets:
+    enp5s0:
+      dhcp4: false
+      dhcp6: false
+    enp6s0:
+      dhcp4: false
+      dhcp6: false
+  bridges:
+    br0:
+      interfaces: [enp5s0]
+      dhcp4: no
+      dhcp6: no
+      addresses: [192.168.178.223/24]
+      gateway4: 192.168.178.1
+      nameservers:
+        addresses: [192.168.178.1]
+    br1:
+      interfaces: [enp6s0]
+      dhcp4: no
+      dhcp6: no
+      addresses: [10.14.0.1/20]
+    #IPMI
+    br11:
+      interfaces: [vlan11]
+      dhcp4: no
+      dhcp6: no
+      addresses: ["192.168.11.99/24"]
+    #public
+    br50:
+      interfaces: [vlan50]
+      dhcp4: no
+      dhcp6: no
+      addresses: ["10.50.0.2/20"]
+    #internal
+    br100:
+      interfaces: [vlan100]
+      dhcp4: no
+      dhcp6: no
+      addresses: ["10.100.0.1/20"]
+    #admin
+    br150:
+      interfaces: [vlan150]
+      dhcp4: no
+      dhcp6: no
+      addresses: ["10.150.0.1/20"]
+    #storage
+    br200:
+      interfaces: [vlan200]
+      dhcp4: no
+      dhcp6: no
+      addresses: ["10.200.0.1/20"]
+    #compute
+    br250:
+      interfaces: [vlan250]
+      dhcp4: no
+      dhcp6: no
+      addresses: ["10.250.0.1/20"]
+    #external
+    br99:
+      interfaces: [vlan99]
+      dhcp4: no
+      dhcp6: no
+      addresses: ["10.99.0.2/20"]
+    #cluster
+    br30:
+      interfaces: [vlan30]
+      dhcp4: no
+      dhcp6: no
+      addresses: ["10.30.0.1/20"]
+  vlans:
+    #IPMI
+    vlan11:
+      id: 11
+      link: enp6s0
+    #public
+    vlan50:
+      id: 50
+      link: enp6s0
+    #internal
+    vlan100:
+      id: 100
+      link: enp6s0
+    #admin
+    vlan150:
+      id: 150
+      link: enp6s0
+    #storage
+    vlan200:
+      id: 200
+      link: enp6s0
+    #compute
+    vlan250:
+      id: 250
+      link: enp6s0
+    #external
+    vlan99:
+      id: 99
+      link: enp6s0
+    #cluster
+    vlan30:
+      id: 30
+      link: enp6s0
